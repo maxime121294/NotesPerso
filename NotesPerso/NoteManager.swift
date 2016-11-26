@@ -8,7 +8,7 @@
 
 import UIKit
 
-var notes = [
+var notes : [String:String] = [
     "titre1":"note1",
     "titre2":"note2",
     "titre3":"note3"
@@ -109,7 +109,7 @@ class NoteManager: UITableViewController {
     }
     
     class func isEmpty() -> Bool{
-        if notes.count == 0 {
+        if notes.isEmpty {
             print("la liste est vide")
             return true
         }

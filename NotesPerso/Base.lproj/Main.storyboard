@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Notes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotesPerso" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,19 +32,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="69c-q5-z0A">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aqg-dF-vR4">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aqg-dF-vR4" id="7em-5i-u7d">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="WAo-iw-woO" kind="show" identifier="showDetail" id="qY0-ab-24L"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JLF-zi-6Pa"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BJ3-kY-uqw"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,7 +46,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="69c-q5-z0A" secondAttribute="bottom" id="zBB-Co-8g9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0jV-tM-54d"/>
+                    <navigationItem key="navigationItem" title="Notes" id="0jV-tM-54d">
+                        <barButtonItem key="backBarButtonItem" title="Retour" id="XcL-ux-zCV"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="Notes" destination="69c-q5-z0A" id="KSe-nk-QFg"/>
                     </connections>
@@ -77,7 +70,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Détail de la note" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-mX-kas">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -91,6 +84,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="bl8-mX-kas" secondAttribute="trailing" id="zmC-rw-1sq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noteDetail" destination="bl8-mX-kas" id="qfn-xZ-q5l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZw-f9-aVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
