@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FBF07C811DE9E18400E36281 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF07C801DE9E18400E36281 /* DetailViewController.swift */; };
 		FBF199D61DE722A4003EA9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF199D51DE722A4003EA9A7 /* AppDelegate.swift */; };
 		FBF199D81DE722A4003EA9A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF199D71DE722A4003EA9A7 /* ViewController.swift */; };
 		FBF199DB1DE722A5003EA9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF199D91DE722A5003EA9A7 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FBF07C801DE9E18400E36281 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FBF199D21DE722A4003EA9A7 /* NotesPerso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesPerso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF199D51DE722A4003EA9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF199D71DE722A4003EA9A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF199D71DE722A4003EA9A7 /* ViewController.swift */,
+				FBF07C801DE9E18400E36281 /* DetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				FBF199F21DE73135003EA9A7 /* NoteManager.swift in Sources */,
 				FBF199D81DE722A4003EA9A7 /* ViewController.swift in Sources */,
 				FBF199D61DE722A4003EA9A7 /* AppDelegate.swift in Sources */,
+				FBF07C811DE9E18400E36281 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +344,7 @@
 				FBF199E61DE722A5003EA9A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
