@@ -11,11 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var noteDetail: UITextView!
+    
+    var detail = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        noteDetail.text = detail
     }
 
     override func didReceiveMemoryWarning() {

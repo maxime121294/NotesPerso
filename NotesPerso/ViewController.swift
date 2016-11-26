@@ -18,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         NoteManager.createNote(title: "titre4", text: "note4")
         NoteManager.listNotes()
-        var isEmpty = NoteManager.isEmpty()
+        NoteManager.isEmpty()
         NoteManager.deleteNote(title: "titre3")
         NoteManager.listNotes()
     }
@@ -36,12 +36,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        cell.textLabel?.text = Array(notes.values)[indexPath.row]
+        cell.textLabel?.text = Array(notes.keys)[indexPath.row]
         
         return cell
     }
 
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: Array(notes.values)[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail"{
+            let guest = segue.destination as! DetailViewController
+            
+            guest.detail = sender as! String
+        }
+    }
 
 }
 
