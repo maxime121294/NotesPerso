@@ -52,6 +52,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             guest.detail = sender as! String
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            NoteManager.deleteNote(title: Array(notes.keys)[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
 }
 
