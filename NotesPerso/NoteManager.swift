@@ -8,13 +8,13 @@
 
 import UIKit
 
+var notes = [
+    "titre1":"note1",
+    "titre2":"note2",
+    "titre3":"note3"
+]
+
 class NoteManager: UITableViewController {
-    
-    var notes = [
-        "titre1":"note1",
-        "titre2":"note2",
-        "titre3":"note3"
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,28 +98,28 @@ class NoteManager: UITableViewController {
     }
     */
     
-    private func createNote(title: String, text: String){
+    class func createNote(title: String, text: String){
         notes[title] = text
     }
     
-    private func listNotes(){
+    class func listNotes(){
         for (title, note) in notes {
             print("titre : \(title) et note : \(note)")
         }
     }
     
-    private func isEmpty() -> Bool{
-        if notes.count > 0 {
-            print("true")
+    class func isEmpty() -> Bool{
+        if notes.count == 0 {
+            print("la liste est vide")
             return true
         }
         else {
-            print("false")
+            print("la liste n'est pas vide")
             return false
         }
     }
     
-    private func deleteNote(title: String) {
+    class func deleteNote(title: String) {
         notes.removeValue(forKey: title)
     }
     
