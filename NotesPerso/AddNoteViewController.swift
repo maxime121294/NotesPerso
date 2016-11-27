@@ -8,15 +8,23 @@
 
 import UIKit
 
-class AddNoteViewController: UIViewController {
+class AddNoteViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var inputTitle: UITextField!
     @IBOutlet weak var inputDetail: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.inputDetail.delegate = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        DispatchQueue.main.async {
+            textView.selectAll(nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

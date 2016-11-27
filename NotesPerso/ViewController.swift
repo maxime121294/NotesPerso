@@ -53,11 +53,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") { (action, indexPath) in
             NoteManager.deleteNote(title: Array(notes.keys)[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+
+        return [delete]
     }
     
     override func viewWillAppear(_ animated: Bool) {
