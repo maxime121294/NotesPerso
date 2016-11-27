@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func deleteNote(_ sender: Any) {
-        let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer \(titre) ?", message: "Attention, cette action est irréversible", preferredStyle: UIAlertControllerStyle.alert)
+        let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer la note \"\(titre)\" ?", message: "", preferredStyle: UIAlertControllerStyle.alert)
         
         deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .default, handler: { (action: UIAlertAction!) in
             print("Supprimé")

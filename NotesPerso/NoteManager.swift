@@ -8,11 +8,7 @@
 
 import UIKit
 
-var notes : [String:String] = [
-    "titre1":"note1",
-    "titre2":"note2",
-    "titre3":"note3"
-]
+var notes : [String:String] = [:]
 
 class NoteManager: UITableViewController {
     
