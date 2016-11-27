@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB8930F81DEA62D80035AA96 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8930F71DEA62D80035AA96 /* AddNoteViewController.swift */; };
 		FBF07C811DE9E18400E36281 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF07C801DE9E18400E36281 /* DetailViewController.swift */; };
 		FBF199D61DE722A4003EA9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF199D51DE722A4003EA9A7 /* AppDelegate.swift */; };
 		FBF199D81DE722A4003EA9A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF199D71DE722A4003EA9A7 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB8930F71DEA62D80035AA96 /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		FBF07C801DE9E18400E36281 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FBF199D21DE722A4003EA9A7 /* NotesPerso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesPerso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF199D51DE722A4003EA9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 			children = (
 				FBF199D71DE722A4003EA9A7 /* ViewController.swift */,
 				FBF07C801DE9E18400E36281 /* DetailViewController.swift */,
+				FB8930F71DEA62D80035AA96 /* AddNoteViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				FBF199F21DE73135003EA9A7 /* NoteManager.swift in Sources */,
 				FBF199D81DE722A4003EA9A7 /* ViewController.swift in Sources */,
 				FBF199D61DE722A4003EA9A7 /* AppDelegate.swift in Sources */,
+				FB8930F81DEA62D80035AA96 /* AddNoteViewController.swift in Sources */,
 				FBF07C811DE9E18400E36281 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

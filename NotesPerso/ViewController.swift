@@ -47,9 +47,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail"{
-            let guest = segue.destination as! DetailViewController
+            let destinationVC = segue.destination as! DetailViewController
             
-            guest.detail = sender as! String
+            destinationVC.detail = sender as! String
         }
     }
     
@@ -59,6 +59,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        Notes.reloadData()
+    }
 }
 
