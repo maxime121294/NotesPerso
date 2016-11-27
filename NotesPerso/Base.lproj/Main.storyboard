@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Détail de la note" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="bl8-mX-kas">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -157,12 +157,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFD-rV-Ysw">
+                                <rect key="frame" x="289" y="597" width="50" height="50"/>
+                                <state key="normal" image="delete"/>
+                                <connections>
+                                    <action selector="deleteNote:" destination="WAo-iw-woO" eventType="touchUpInside" id="6xo-wO-aQ5"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="returnToNotes" id="Khc-1U-xCN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="n5j-8v-pb7" firstAttribute="top" secondItem="iFD-rV-Ysw" secondAttribute="bottom" constant="20" id="8Uz-di-Sqq"/>
                             <constraint firstItem="bl8-mX-kas" firstAttribute="leading" secondItem="xmd-gH-10S" secondAttribute="leadingMargin" id="Bom-xs-2qj"/>
                             <constraint firstItem="n5j-8v-pb7" firstAttribute="top" secondItem="bl8-mX-kas" secondAttribute="bottom" id="bn0-3f-FmN"/>
                             <constraint firstItem="bl8-mX-kas" firstAttribute="top" secondItem="XJK-bj-WWA" secondAttribute="bottom" id="jN6-jl-HAi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iFD-rV-Ysw" secondAttribute="trailing" constant="20" id="nRM-ny-rHY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bl8-mX-kas" secondAttribute="trailing" id="zmC-rw-1sq"/>
                         </constraints>
                     </view>
@@ -219,4 +229,10 @@
             <point key="canvasLocation" x="2316" y="-636.4317841079461"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="50" height="50"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Khc-1U-xCN"/>
+    </inferredMetricsTieBreakers>
 </document>

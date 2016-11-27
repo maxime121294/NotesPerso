@@ -43,6 +43,22 @@ class DetailViewController: UIViewController {
             NoteManager.createNote(title: titre, text: noteDetail.text)
         }
     }
+    
+    @IBAction func deleteNote(_ sender: Any) {
+        let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer \(titre) ?", message: "Attention, cette action est irréversible", preferredStyle: UIAlertControllerStyle.alert)
+        
+        deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .default, handler: { (action: UIAlertAction!) in
+            print("Supprimé")
+            NoteManager.deleteNote(title: self.titre)
+            self.performSegue(withIdentifier: "returnToNotes", sender: nil)
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Annulé")
+        }))
+        
+        present(deleteAlert, animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
