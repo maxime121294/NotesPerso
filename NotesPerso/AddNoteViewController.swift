@@ -29,8 +29,19 @@ class AddNoteViewController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-        NoteManager.createNote(title: inputTitle.text!, text: inputDetail.text!)
-        self.dismiss(animated: true, completion: nil)
+        if inputTitle.text == "" {
+            let emptyTitleAlert = UIAlertController(title: "Veuillez ajouter un titre à la note", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            
+            emptyTitleAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction!) in
+                print("OK")
+            }))
+            
+            present(emptyTitleAlert, animated: true, completion: nil)
+        }
+        else {
+            NoteManager.createOrEditNote(title: inputTitle.text!, text: inputDetail.text!)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // Hide keyboard when user touches outside

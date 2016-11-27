@@ -94,7 +94,7 @@ class NoteManager: UITableViewController {
     }
     */
     
-    class func createNote(title: String, text: String){
+    class func createOrEditNote(title: String, text: String){
         notes[title] = text
     }
     

@@ -40,14 +40,14 @@ class DetailViewController: UIViewController {
         else if navigationItem.rightBarButtonItem?.title == "Enregistrer"{
             noteDetail.isEditable = false
             navigationItem.rightBarButtonItem?.title = "Modifier"
-            NoteManager.createNote(title: titre, text: noteDetail.text)
+            NoteManager.createOrEditNote(title: titre, text: noteDetail.text)
         }
     }
     
     @IBAction func deleteNote(_ sender: Any) {
-        let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer la note \"\(titre)\" ?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer la note \"\(titre)\" ?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         
-        deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .default, handler: { (action: UIAlertAction!) in
+        deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .destructive, handler: { (action: UIAlertAction!) in
             print("Supprimé")
             NoteManager.deleteNote(title: self.titre)
             self.navigationController?.popViewController(animated: true)
