@@ -50,7 +50,7 @@ class DetailViewController: UIViewController {
         deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .default, handler: { (action: UIAlertAction!) in
             print("Supprimé")
             NoteManager.deleteNote(title: self.titre)
-            self.performSegue(withIdentifier: "returnToNotes", sender: nil)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         deleteAlert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { (action: UIAlertAction!) in
