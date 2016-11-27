@@ -42,14 +42,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetail", sender: Array(notes.values)[indexPath.row])
+        let detailedNote = [Array(notes.keys)[indexPath.row], Array(notes.values)[indexPath.row]]
+        performSegue(withIdentifier: "showDetail", sender: detailedNote)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail"{
-            let destinationVC = segue.destination as! DetailViewController
-            
-            destinationVC.detail = sender as! String
+            let destinationVC : DetailViewController = segue.destination as! DetailViewController
+            destinationVC.array = sender as! Array
         }
     }
     

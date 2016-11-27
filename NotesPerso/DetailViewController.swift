@@ -12,10 +12,16 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var noteDetail: UITextView!
     
+    var array = [String]()
     var detail = ""
+    var titre = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titre = self.array[0]
+        detail = self.array[1]
+        
+        self.title = titre
         
         noteDetail.text = detail
     }
@@ -25,6 +31,18 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func editNote(_ sender: Any) {
+        if navigationItem.rightBarButtonItem?.title == "Modifier"{
+            noteDetail.isEditable = true
+            noteDetail.becomeFirstResponder()
+            navigationItem.rightBarButtonItem?.title = "Enregistrer"
+        }
+        else if navigationItem.rightBarButtonItem?.title == "Enregistrer"{
+            noteDetail.isEditable = false
+            navigationItem.rightBarButtonItem?.title = "Modifier"
+            NoteManager.createNote(title: titre, text: noteDetail.text)
+        }
+    }
 
     /*
     // MARK: - Navigation
