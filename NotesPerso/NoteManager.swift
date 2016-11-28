@@ -119,4 +119,9 @@ class NoteManager: UITableViewController {
         notes.removeValue(forKey: title)
     }
     
+    class func renameNote(oldTitle: String, newTitle: String){
+        createOrEditNote(title: newTitle, text: notes[oldTitle]!)
+        deleteNote(title: oldTitle)
+    }
+    
 }

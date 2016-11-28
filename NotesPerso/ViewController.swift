@@ -54,12 +54,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let noteTitle = Array(notes.keys)[indexPath.row]
+        
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") { (action, indexPath) in
-            NoteManager.deleteNote(title: Array(notes.keys)[indexPath.row])
+            NoteManager.deleteNote(title: noteTitle)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
+        let rename = UITableViewRowAction(style: .default, title: "Renommer") { (action, indexPath) in
+            
+            let renameAlert = UIAlertController(title: "Nouveau titre pour la note \"\(noteTitle)\"", message: nil, preferredStyle: .alert)
+            
+            renameAlert.addTextField { (textField) in
+                textField.text = noteTitle
+            }
+            
+            renameAlert.addAction(UIAlertAction(title: "Enregistrer", style: .default, handler: { [weak renameAlert] (_) in
+                let newTitle = renameAlert?.textFields![0] // Force unwrapping because we know it exists.
 
-        return [delete]
+                NoteManager.renameNote(oldTitle: noteTitle, newTitle: (newTitle?.text)!)
+                print("nouveau titre: \(newTitle?.text)")
+                
+                self.Notes.reloadData()
+            }))
+            
+            self.present(renameAlert, animated: true, completion: nil)
+        }
+        
+        rename.backgroundColor = UIColor.blue
+
+        return [delete, rename]
     }
     
     override func viewWillAppear(_ animated: Bool) {
