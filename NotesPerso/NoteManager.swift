@@ -120,8 +120,10 @@ class NoteManager: UITableViewController {
     }
     
     class func renameNote(oldTitle: String, newTitle: String){
-        createOrEditNote(title: newTitle, text: notes[oldTitle]!)
-        deleteNote(title: oldTitle)
+        if newTitle != oldTitle{
+            createOrEditNote(title: newTitle, text: notes[oldTitle]!)
+            deleteNote(title: oldTitle)
+        }
     }
     
 }

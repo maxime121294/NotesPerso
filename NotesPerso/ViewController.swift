@@ -54,26 +54,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let noteTitle = Array(notes.keys)[indexPath.row]
+        let oldTitle = Array(notes.keys)[indexPath.row]
         
         let delete = UITableViewRowAction(style: .destructive, title: "Supprimer") { (action, indexPath) in
-            NoteManager.deleteNote(title: noteTitle)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let deleteAlert = UIAlertController(title: "Voulez-vous vraiment supprimer la note \"\(oldTitle)\" ?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+            
+            deleteAlert.addAction(UIAlertAction(title: "Supprimer", style: .destructive, handler: { (action: UIAlertAction!) in
+                print("Supprimé")
+                NoteManager.deleteNote(title: oldTitle)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }))
+            
+            deleteAlert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Annulé")
+            }))
+            
+            self.present(deleteAlert, animated: true, completion: nil)
         }
         
         let rename = UITableViewRowAction(style: .default, title: "Renommer") { (action, indexPath) in
             
-            let renameAlert = UIAlertController(title: "Nouveau titre pour la note \"\(noteTitle)\"", message: nil, preferredStyle: .alert)
+            let renameAlert = UIAlertController(title: "Nouveau titre pour la note \"\(oldTitle)\"", message: nil, preferredStyle: .alert)
             
             renameAlert.addTextField { (textField) in
-                textField.text = noteTitle
+                textField.text = oldTitle
             }
             
+            renameAlert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Annulé")
+            }))
+            
             renameAlert.addAction(UIAlertAction(title: "Enregistrer", style: .default, handler: { [weak renameAlert] (_) in
-                let newTitle = renameAlert?.textFields![0] // Force unwrapping because we know it exists.
-
-                NoteManager.renameNote(oldTitle: noteTitle, newTitle: (newTitle?.text)!)
-                print("nouveau titre: \(newTitle?.text)")
+                let textField = renameAlert?.textFields![0] // Force unwrapping because we know it exists.
+                let newTitle = textField?.text
+                
+                NoteManager.renameNote(oldTitle: oldTitle, newTitle: (newTitle)!)
+                print("nouveau titre: \(newTitle)")
                 
                 self.Notes.reloadData()
             }))
